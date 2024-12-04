@@ -1,13 +1,20 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* 背景颜色样式 */
+.sunny {
+  background-color: #f7e9a0; /* 阳光天气 */
+  transition: background-color 0.5s ease; /* 平滑过渡 */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.rainy {
+  background-color: #9ec5e8; /* 雨天 */
+  transition: background-color 0.5s ease;
+}
+
+.cloudy {
+  background-color: #d6d6d6; /* 多云 */
+  transition: background-color 0.5s ease;
+}
+
+.default {
+  background-color: #ffffff; /* 默认 */
+  transition: background-color 0.5s ease;
 }
