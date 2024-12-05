@@ -1,24 +1,68 @@
-/* 背景颜色样式 */
-.sunny {
-  background-color: #f7e9a0; /* 阳光天气 */
-  transition: background-color 0.5s ease; /* 平滑过渡 */
+/* 动态太阳动画 */
+.sunny-animation {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, yellow, orange);
+  border-radius: 50%;
+  animation: rotate 5s linear infinite;
 }
 
-.rainy {
-  background-color: #9ec5e8; /* 雨天 */
-  transition: background-color 0.5s ease;
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.cloudy {
-  background-color: #d6d6d6; /* 多云 */
-  transition: background-color 0.5s ease;
+/* 动态雨动画 */
+.rainy-animation {
+  position: relative;
+  width: 50px;
+  height: 70px;
 }
 
-.default {
-  background-color: #ffffff; /* 默认 */
-  transition: background-color 0.5s ease;
+.rain-drop {
+  width: 5px;
+  height: 20px;
+  background: lightblue;
+  border-radius: 5px;
+  position: absolute;
+  animation: drop 1s infinite;
 }
 
-h1 {
-  background-color: aqua;
+.rain-drop:nth-child(1) {
+  left: 10px;
+  animation-delay: 0.1s;
+}
+.rain-drop:nth-child(2) {
+  left: 25px;
+  animation-delay: 0.2s;
+}
+.rain-drop:nth-child(3) {
+  left: 40px;
+  animation-delay: 0.3s;
+}
+
+@keyframes drop {
+  from {
+    top: 0;
+    opacity: 1;
+  }
+  to {
+    top: 50px;
+    opacity: 0;
+  }
+}
+
+/* 动态云效果 */
+.cloudy-animation {
+  position: relative;
+  width: 80px;
+  height: 50px;
+  background: lightgray;
+  border-radius: 30px;
+  box-shadow: 20px 10px 0 0 lightgray;
 }
