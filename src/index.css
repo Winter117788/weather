@@ -125,3 +125,11 @@
   padding: 20px;
 }
 
+.sunny-animation,
+.rainy-animation,
+.cloudy-animation {
+  margin: 0 auto; /* 水平居中 */
+  display: block; /* 确保是块级元素 */
+  width: 200px; /* 适当调整大小 */
+  height: 200px; /* 适当调整大小 */
+}

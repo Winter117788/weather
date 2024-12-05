@@ -31,9 +31,6 @@ const App = () => {
         <WeatherSearch onSearch={fetchWeather} />
         <WeatherDisplay weather={weather} />
       </div>
-      <div>
-        <WeatherAnimation weather={weather} />
-      </div>
     </div>
   );
 };
