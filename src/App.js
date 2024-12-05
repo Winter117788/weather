@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import WeatherSearch from "./components/WeatherSearch";
 import WeatherDisplay from "./components/WeatherDisplay";
-import WeatherAdvice from "./components/WeatherAdvice";
+import WeatherAnimation from "./components/WeatherAnimation";
 
 const App = () => {
   const [weather, setWeather] = useState(null);
@@ -26,11 +26,14 @@ const App = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Weather App</h1>
-      <WeatherSearch onSearch={fetchWeather} />
-      <WeatherDisplay weather={weather} />
-      <WeatherAdvice weather={weather} />
+    <div className="app-container">
+      <div>
+        <WeatherSearch onSearch={fetchWeather} />
+        <WeatherDisplay weather={weather} />
+      </div>
+      <div>
+        <WeatherAnimation weather={weather} />
+      </div>
     </div>
   );
 };

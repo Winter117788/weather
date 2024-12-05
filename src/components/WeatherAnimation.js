@@ -1,21 +1,35 @@
-import React from "react";
+const RainyAnimation = () => {
+    const drops = Array.from({ length: 20 }, (_, index) => (
+      <div
+        className="raindrop"
+        key={index}
+        style={{
+          left: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 0.8}s`,
+        }}
+      ></div>
+    ));
+  
+    return <div className="rainy-animation">{drops}</div>;
+  };
 
-const WeatherAnimation = ({ condition }) => {
-  if (condition.includes("sun")) {
-    return <div className="sunny-animation"></div>;
-  } else if (condition.includes("rain")) {
-    return (
-      <div className="rainy-animation">
-        <div className="rain-drop"></div>
-        <div className="rain-drop"></div>
-        <div className="rain-drop"></div>
-      </div>
-    );
-  } else if (condition.includes("cloud")) {
-    return <div className="cloudy-animation"></div>;
-  } else {
-    return <p>No animation available</p>;
-  }
-};
-
-export default WeatherAnimation;
+const WeatherAnimation = ({ weather }) => {
+    if (!weather) return null;
+  
+    const condition = weather.weather[0].main.toLowerCase();
+  
+    if (condition.includes("sun")) {
+      return <div className="sunny-animation"></div>;
+    }
+    if (condition.includes("rain")) {
+        return <RainyAnimation />;
+    }
+    if (condition.includes("cloud")) {
+      return <div className="cloudy-animation"></div>;
+    }
+  
+    return <RainyAnimation />;
+  };
+  
+  export default WeatherAnimation;
+  

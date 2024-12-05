@@ -1,68 +1,127 @@
-/* 动态太阳动画 */
+/* 动态太阳 */
 .sunny-animation {
   position: relative;
-  width: 50px;
-  height: 50px;
-  background: radial-gradient(circle, yellow, orange);
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #FFD700, #FFA500);
   border-radius: 50%;
-  animation: rotate 5s linear infinite;
+  animation: rotate 4s linear infinite;
+  margin: 20px auto;
 }
 
+/* 添加射线 */
+.sunny-animation::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  border: 2px solid #FFD700;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate-rays 2s linear infinite;
+  box-shadow: 0 0 10px #FFD700, 0 0 20px #FFA500;
+}
+
+/* 圆形太阳旋转动画 */
 @keyframes rotate {
-  from {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
 
-/* 动态雨动画 */
+/* 射线旋转动画 */
+@keyframes rotate-rays {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+
+/* 动态下雨 */
 .rainy-animation {
   position: relative;
-  width: 50px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
+  background-color: #e0eef7; /* 天空背景 */
+  overflow: hidden;
+  margin: 20px auto;
 }
 
-.rain-drop {
-  width: 5px;
-  height: 20px;
-  background: lightblue;
-  border-radius: 5px;
+.rainy-animation .raindrop {
   position: absolute;
-  animation: drop 1s infinite;
-}
-
-.rain-drop:nth-child(1) {
-  left: 10px;
-  animation-delay: 0.1s;
-}
-.rain-drop:nth-child(2) {
-  left: 25px;
-  animation-delay: 0.2s;
-}
-.rain-drop:nth-child(3) {
-  left: 40px;
-  animation-delay: 0.3s;
+  width: 2px;
+  height: 10px;
+  background-color: #56aef5;
+  animation: drop 0.8s linear infinite;
+  opacity: 0.8;
 }
 
 @keyframes drop {
-  from {
-    top: 0;
+  0% {
+    top: -20px;
+    opacity: 0;
+  }
+  50% {
     opacity: 1;
   }
-  to {
-    top: 50px;
+  100% {
+    top: 100px;
     opacity: 0;
   }
 }
 
-/* 动态云效果 */
+
+/* 动态云 */
 .cloudy-animation {
+  width: 120px;
+  height: 60px;
+  background: #B0C4DE;
+  border-radius: 50%;
   position: relative;
-  width: 80px;
-  height: 50px;
-  background: lightgray;
-  border-radius: 30px;
-  box-shadow: 20px 10px 0 0 lightgray;
+  animation: moveCloud 6s linear infinite;
 }
+
+.cloudy-animation::before,
+.cloudy-animation::after {
+  content: '';
+  position: absolute;
+  background: #B0C4DE;
+  width: 100px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.cloudy-animation::before {
+  top: -20px;
+  left: -40px;
+}
+
+.cloudy-animation::after {
+  top: -20px;
+  left: 40px;
+}
+
+@keyframes moveCloud {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+.app-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+}
+
